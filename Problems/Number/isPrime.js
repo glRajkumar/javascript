@@ -5,6 +5,7 @@ function isPrime(i) {
         if (i % j === 0) {
             return false
         }
+        console.log(j)
     }
     return true
 

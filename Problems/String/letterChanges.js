@@ -5,9 +5,7 @@
 
 function letterChanges(str) {
     let newStr = str.toLowerCase().replace(/[a-z]/gi, char => {
-        if (char === 'z' || char === 'Z') {
-            return 'a'
-        }
+        if (char === 'z' || char === 'Z') return 'a'
         return String.fromCharCode(char.charCodeAt() + 1)
     });
 

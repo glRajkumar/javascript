@@ -11,7 +11,7 @@ function isAnagram(str1 = "", str2 = "") {
 
 function formatStr(str = "") {
     return str
-        .replace(/[^\w]/g, '')
+        .replace(/[^\w]/g, '') // only access the alphabets
         .toLowerCase()
         .split('')
         .sort()
