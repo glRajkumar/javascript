@@ -33,10 +33,11 @@ class CircularQueue {
     }
 
     dequeue() {
-        let item = null
+        // let item = null
 
         if (!this.isEmpty()) {
-            item = this.list[this.head]
+            // item = this.list[this.head]
+            console.log("head", this.head)
             this.list[this.head] = null
             this.head = (this.head + 1) % this.capacity
             this.size--
@@ -46,6 +47,7 @@ class CircularQueue {
                 this.head = -1
             }
         }
+        // return item
     }
 
     peek() {

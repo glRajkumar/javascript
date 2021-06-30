@@ -35,7 +35,7 @@ class PriorityQueue {
     }
 
     getData() {
-        return this.list
+        return this.list.map(el => el.data)
     }
 
     print() {
