@@ -21,12 +21,11 @@ class LinkedList {
 
     insertAtTail(data) {
         const node = new Node(data, null)
-        let current
 
         if (!this.head) {
             this.head = node
         } else {
-            current = this.head
+            let current = this.head
             while (current.next) {
                 current = current.next
             }
