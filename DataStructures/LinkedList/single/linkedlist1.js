@@ -1,4 +1,4 @@
-const Node = require('../Node/node')
+const Node = require('../../Node/node')
 
 class LinkedList {
     constructor() {
@@ -6,11 +6,11 @@ class LinkedList {
         this.length = 0
     }
 
-    getLength() {
+    get size() {
         return this.length
     }
 
-    isEmpty() {
+    get isEmpty() {
         return this.length === 0
     }
 
@@ -20,7 +20,7 @@ class LinkedList {
     }
 
     insertAtTail(data) {
-        const node = new Node(data, null)
+        const node = new Node(data)
 
         if (!this.head) {
             this.head = node
@@ -35,18 +35,19 @@ class LinkedList {
     }
 
     insertAt(index, data) {
-        if (index < 0 || index >= this.length || (!index && index !== 0)) {
+        if (index < 0 || index > this.length || (!index && index !== 0)) {
             return
 
         } else if (index === 0) {
             this.insertAtHead(data)
 
-        } else if (index === (this.length - 1)) {
+        } else if (index === this.length) {
             this.insertAtTail(data)
 
         } else {
             let node = new Node(data, null)
             let { current, prev } = this.slice(index)
+            console.log({ current, prev })
             node.next = current
             prev.next = node
             this.length++
@@ -116,13 +117,13 @@ class LinkedList {
     }
 
     popAt(index) {
-        if (index < 0 || index >= this.length || (!index && index !== 0)) {
+        if (index < 0 || index > this.length || (!index && index !== 0)) {
             return
 
         } else if (index === 0) {
             this.popHead()
 
-        } else if (index === (this.length - 1)) {
+        } else if (index === this.length) {
             this.popTail()
 
         } else {

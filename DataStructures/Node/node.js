@@ -5,4 +5,8 @@ class Node {
     }
 }
 
+// const createNode = (data, next = null) => {
+//     return { data, next }
+// }
+
 module.exports = Node

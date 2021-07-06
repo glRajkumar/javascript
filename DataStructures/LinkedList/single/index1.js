@@ -1,11 +1,11 @@
-const LinkedList = require('./linkedlist')
+const LinkedList = require('./linkedlist1')
 
-let ll = new LinkedList()
+const ll = new LinkedList()
 
 function justCheck() {
-    console.log("isEmpty->", ll.isEmpty())
+    console.log("isEmpty->", ll.isEmpty)
     console.log("data -> ", ll.getData())
-    console.log("length", ll.getLength())
+    console.log("length", ll.size)
     console.log("")
 }
 
@@ -32,6 +32,7 @@ justCheck()
 
 // console.log(ll.getByIndex(5))
 // console.log(ll.getValByIndex(5))
+// console.log(ll.slice(3))
 
 function delHeadHlp(num) {
     for (let i = num; i > 0; i--) {
@@ -47,12 +48,12 @@ function delTailHlp(num) {
     }
 }
 
-// delTailHlp(3)
+// delTailHlp(6)
 
-// ll.insertAt(2, 10)
-// ll.popAt(2)
+// ll.insertAt(3, 10)
+// ll.popAt(0)
 
 // ll.clear()
 // ll.print()
 
-// console.log(ll.getData())
+console.log(ll.getData())

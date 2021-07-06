@@ -21,9 +21,9 @@ class DoublyLinkedList {
         if (!this.head) {
             this.head = node
         } else {
-            let prevForLast = this.getNodeAt(this.length - 1)
-            prevForLast.next = node
-            node.prev = prevForLast
+            let lastNode = this.getNodeAt(this.length - 1)
+            lastNode.next = node
+            node.prev = lastNode
         }
 
         this.tail = node
@@ -40,17 +40,19 @@ class DoublyLinkedList {
             this.head.prev = element
             this.head = element
 
-        } else if (index === this.size) {
+        } else if (index === this.length) {
             this.tail.next = element
             element.prev = this.tail
             this.tail = element
 
         } else {
-            let previous = this.head
+            let previous = this.getNodeAt(index - 1)
 
-            for (let i = 0; i < index - 1; i++) {
-                previous = previous.next
-            }
+            // Or
+            // let previous = this.head
+            // for (let i = 0; i < index - 1; i++) {
+            //     previous = previous.next
+            // }
 
             element.next = previous.next
             previous.next.prev = element

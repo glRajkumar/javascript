@@ -17,12 +17,12 @@ class LinkedList {
     push(item) {
         const element = this.createElement(item)
 
-        if (this.head === null) {
+        if (!this.head) {
             this.head = element
         } else {
             let current = this.head
 
-            while (current.next !== null) {
+            while (current.next) {
                 current = current.next
             }
 
@@ -33,18 +33,18 @@ class LinkedList {
         return this.size
     }
 
-    insert(item, index = 0) {
-        if (index < 0 || index > this.size) return
-
-        if (index === this.size) {
-            return this.push(item)
-        }
+    insert(item, index = this.#size) {
+        if (index < 0 || index > this.#size) return
 
         const element = this.createElement(item)
 
         if (index === 0) {
             element.next = this.head
             this.head = element
+
+        } else if (index === this.size) {
+            return this.push(item)
+
         } else {
             let previous = this.head
 
@@ -60,12 +60,12 @@ class LinkedList {
         return this.size
     }
 
-    remove(index = 0) {
-        if (index < 0 || index >= this.size) return null
+    remove(index = this.#size - 1) {
+        if (index < 0 || index > this.#size) return null
 
         let removedElement = this.head
 
-        if (index === 0) {
+        if (index === 0 || this.#size === index) {
             this.head = this.head.next
         } else {
             let previous = this.head
