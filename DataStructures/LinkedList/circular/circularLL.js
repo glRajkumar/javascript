@@ -1,5 +1,6 @@
 class CircularLinkedList {
     head = null
+    tail = null
     length = 0
 
     get size() {
