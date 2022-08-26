@@ -10,7 +10,7 @@ let str4 = new String("A String object")
 
 // Instance properties
 // length - returns the length of the array
-let str4 = "Raj"
+let str5 = "Raj"
 str4.length  // 3
 
 
@@ -57,8 +57,8 @@ let greetList = ['Hello', ' ', 'Venkat', '!']
 "".concat(...greetList)  // "Hello Venkat!"
 
 let firstName = "Raj", secName = "kumar"
-let h = "".concat(firstName, " ", secName)  // "Raj kumar"
-let h = `${firstName} ${secName}`           // "Raj kumar" (prefer this)
+let h1 = "".concat(firstName, " ", secName)  // "Raj kumar"
+let h2 = `${firstName} ${secName}`           // "Raj kumar" (prefer this)
 
 
 // The includes() method performs a case-sensitive search to determine whether one string may be found within another string, returning true or false as appropriate.
@@ -118,7 +118,7 @@ items.sort((a, b) => a.localeCompare(b, 'fr', { ignorePunctuation: true }))
 
 // The match() method retrieves the result of matching a string against a regular expression.
 // syntax - match(regexp)
-let str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+let str6 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 str.match(/[A-E]/gi) // ['A', 'B', 'C', 'D', 'E', 'a', 'b', 'c', 'd', 'e']
 
 
@@ -157,17 +157,17 @@ p.search(/[^\w\s]/g) // 43 (any character that is not a word character or whites
 // syntax - slice(beginIndex = 0, ?endIndex)
 // If negative, it is treated as str.length + beginIndex. (For example, if beginIndex is -3, it is treated as str.length - 3.) If beginIndex is not a number after Number(beginIndex), it is treated as 0.
 // If beginIndex is greater than or equal to str.length, an empty string is returned.
-let str1 = 'The morning is upon us.' // the length of str1 is 23.
-str1.slice(1, 8)     // he morn
-str1.slice(4, -2)    // morning is upon u
-str1.slice(12)       // is upon us.
-str1.slice(30)       // ""
-str.slice(-3)        // 'us.'
-str.slice(-3, -1)    // 'us'
-str.slice(0, -1)     // 'The morning is upon us'
-str.slice(-11, 16)   // is u
-str.slice(11, -7)    // " is u"
-str.slice(-5, -1)    // "n us"
+let str7 = 'The morning is upon us.' // the length of str7 is 23.
+str7.slice(1, 8)     // he morn
+str7.slice(4, -2)    // morning is upon u
+str7.slice(12)       // is upon us.
+str7.slice(30)       // ""
+str7.slice(-3)       // 'us.'
+str7.slice(-3, -1)   // 'us'
+str7.slice(0, -1)    // 'The morning is upon us'
+str7.slice(-11, 16)  // is u
+str7.slice(11, -7)   // " is u"
+str7.slice(-5, -1)   // "n us"
 
 
 // The split() method divides a String into an ordered list of substrings, puts these substrings into an array, and returns the array. 
@@ -221,19 +221,19 @@ anyString.slice(-5, -2)    // "zil"
 // syntax - startsWith(searchString, ?position = 0)
 // The position in this string at which to begin searching for searchString
 //startswith
-let str2 = 'To be, or not to be, that is the question.'
-str2.startsWith('To be')         // true
-str2.startsWith('not to be')     // false
-str2.startsWith('not to be', 10) // true
+let str8 = 'To be, or not to be, that is the question.'
+str8.startsWith('To be')         // true
+str8.startsWith('not to be')     // false
+str8.startsWith('not to be', 10) // true
 
 
 // The endsWith() method determines whether a string ends with the characters of a specified string, returning true or false as appropriate.
 // syntax - endsWith(searchString, ?length = str.length)
-let str = 'To be, or not to be, that is the question.'
+let str9 = 'To be, or not to be, that is the question.'
 
-str.endsWith('question.')  // true
-str.endsWith('to be')      // false
-str.endsWith('to be', 19)  // true
+str9.endsWith('question.')  // true
+str9.endsWith('to be')      // false
+str9.endsWith('to be', 19)  // true
 
 
 // The toLocaleLowerCase() method returns the calling string value converted to lower case, according to any locale-specific case mappings.

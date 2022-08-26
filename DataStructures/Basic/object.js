@@ -85,14 +85,14 @@ newObj // { foo: "bar", baz: 42 }
 
 // freeze - it freezes an object. A frozen object can no longer be changed freezing an object prevents new properties from being added to it, existing properties from being removed, prevents changing the enumerability, configurability, or writability of existing properties, and prevents the values of existing properties from being changed. In addition, freezing an object also prevents its prototype from being changed. freeze() returns the same object that was passed in.
 // isFrozen - it determines if an object is frozen.
-let obj5 = { prop: 42 }
+let obj6 = { prop: 42 }
 
-Object.isFrozen(obj5) // false
+Object.isFrozen(obj6) // false
 Object.freeze(obj)
-Object.isFrozen(obj5) // true
+Object.isFrozen(obj6) // true
 
-obj5.prop = 33 // Throws an error in strict mode
-obj5.prop      // 42
+obj6.prop = 33 // Throws an error in strict mode
+obj6.prop      // 42
 
 
 // preventExtensions - it prevents new properties from ever being added to an object (i.e. prevents future extensions to the object).
@@ -108,14 +108,14 @@ Object.defineProperty(object1, 'property1', { value: 42 }) // throws TypeError: 
 
 // seal - it seals an object, preventing new properties from being added to it and marking all existing properties as non-configurable. Values of present properties can still be changed as long as they are writable.
 // isSealed - it determines if an object is sealed.
-let obj6 = { prop: 42 }
+let obj7 = { prop: 42 }
 
-Object.isSealed(obj6) // false
+Object.isSealed(obj7) // false
 Object.seal(obj)
-Object.isSealed(obj6) // true
+Object.isSealed(obj7) // true
 
-obj6.prop = 33
-obj6.prop             // 33
-Object.isSealed(obj6) // true
-delete obj6.prop      // cannot delete when sealed
-obj6.prop             // 33
+obj7.prop = 33
+obj7.prop             // 33
+Object.isSealed(obj7) // true
+delete obj7.prop      // cannot delete when sealed
+obj7.prop             // 33
