@@ -7,7 +7,7 @@ function capitalizeLetters(str = "hello") {
     // })
 
     let spltStr = str.toLowerCase().trim().split(" ")
-    return spltStr.map(e => e[0].toUpperCase() + e.substr(1)).join(" ")
+    return spltStr.map(e => e[0].toUpperCase() + e.slice(1)).join(" ")
 }
 
 console.log(capitalizeLetters("i love you"))

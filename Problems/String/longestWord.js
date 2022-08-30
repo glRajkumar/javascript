@@ -11,11 +11,8 @@ function longestWord(sen = "") {
 
     let longWrArr = sorted.filter(word => word.length === sorted[0].length)
 
-    if (longWrArr.length === 1) {
-        return longWrArr[0]
-    } else {
-        return longWrArr
-    }
+    if (longWrArr.length === 1) return longWrArr[0]
+    return longWrArr
 }
 
 console.log(longestWord("Hello there, my name is RajKumar"))
