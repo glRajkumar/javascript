@@ -186,32 +186,32 @@ frs.slice(-3, -1)  // [ 'Lemon', 'Apple' ]
 // It mutates the original array
 
 let myFish1 = ['angel', 'clown', 'mandarin', 'sturgeon']
-let removed1 = myFish.splice(2, 0, 'drum', 'guitar')
+let removed1 = myFish1.splice(2, 0, 'drum', 'guitar')
 // myFish is ["angel", "clown", "drum", "guitar", "mandarin", "sturgeon"]
 // removed is [], no elements removed
 
 let myFish2 = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon']
-let removed2 = myFish.splice(3, 1)
+let removed2 = myFish2.splice(3, 1)
 // myFish is ["angel", "clown", "drum", "sturgeon"]
 // removed is ["mandarin"]
 
 let myFish3 = ['angel', 'clown', 'drum', 'sturgeon']
-let removed3 = myFish.splice(2, 1, 'trumpet')
+let removed3 = myFish3.splice(2, 1, 'trumpet')
 // myFish is ["angel", "clown", "trumpet", "sturgeon"]
 // removed is ["drum"]
 
 let myFish4 = ['angel', 'clown', 'trumpet', 'sturgeon']
-let removed4 = myFish.splice(0, 2, 'parrot', 'anemone', 'blue')
+let removed4 = myFish4.splice(0, 2, 'parrot', 'anemone', 'blue')
 // myFish is ["parrot", "anemone", "blue", "trumpet", "sturgeon"]
 // removed is ["angel", "clown"]
 
 let myFish5 = ['angel', 'clown', 'mandarin', 'sturgeon']
-let removed5 = myFish.splice(-2, 1)
+let removed5 = myFish5.splice(-2, 1)
 // myFish is ["angel", "clown", "sturgeon"]
 // removed is ["mandarin"]
 
 let myFish6 = ['angel', 'clown', 'mandarin', 'sturgeon']
-let removed6 = myFish.splice(2)
+let removed6 = myFish6.splice(2)
 // myFish is ["angel", "clown"]
 // removed is ["mandarin", "sturgeon"]
 

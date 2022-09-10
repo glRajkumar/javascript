@@ -13,7 +13,7 @@ typeof doesntExist // "undefined"
 typeof true        // "boolean"
 typeof null        // "object"
 
-typeof str1 // string
+typeof shape // string
 typeof String('Hello world') // string
 typeof new String('Hello world') // object
 
