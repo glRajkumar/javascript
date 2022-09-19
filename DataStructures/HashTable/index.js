@@ -2,6 +2,8 @@ const HashTable = require('./hashTable')
 
 const ht = new HashTable()
 
+// console.log(ht)
+
 function justCheck() {
   console.log("isEmpty ->", ht.isEmpty())
   console.log("data -> ", ht.getData())
@@ -23,9 +25,14 @@ ht.add("best-lang3", "Javascript3")
 
 justCheck()
 
+ht.remove("age")
+ht.remove("fav-lang")
+
 console.log(ht.find("best-lang2"))
 // console.log(ht.find("lastName"))
 // console.log(ht.find("age"))
 // console.log(ht.find("fav-lang"))
 
-// justCheck()
+justCheck()
+
+// console.log(ht)
