@@ -1,4 +1,4 @@
-const Node = require('../Node/node')
+const Node = require('../../Node/node')
 
 class Queue {
     constructor() {

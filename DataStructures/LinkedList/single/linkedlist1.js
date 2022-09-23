@@ -47,7 +47,7 @@ class LinkedList {
         } else {
             let node = new Node(data, null)
             let { current, prev } = this.slice(index)
-            console.log({ current, prev })
+            // console.log({ current, prev })
             node.next = current
             prev.next = node
             this.length++
