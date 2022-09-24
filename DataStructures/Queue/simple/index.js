@@ -1,4 +1,5 @@
-const Queue = require('./queue')
+// const Queue = require('./queue')
+const Queue = require('./queue2')
 
 const queue = new Queue()
 
@@ -26,3 +27,5 @@ queue.dequeue()
 queue.dequeue()
 
 justCheck()
+
+// console.log(queue.print())
