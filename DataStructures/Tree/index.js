@@ -42,7 +42,7 @@ let deepest = deeper.createChildNode("Child-0-5-2-2-0")
 deepest.createChildNode("Child-0-5-2-2-0-0")
 deeper.createChildNode("Child-0-5-2-2-1")
 
-justCheck(tree)
+// justCheck(tree)
 
 // console.log(tree.isInTree(child1))
 // console.log(tree.isInTree("Child-0-3"))
@@ -58,3 +58,17 @@ justCheck(tree)
 
 // let retrievedChilds = tree.getChildNodes("Child-0-5")
 // console.log(retrievedChilds)
+
+// let removed = tree.removeNode("Child-0-3")
+// justCheck(removed)
+
+// let removed = deep.removeNode("Child-0-5-2-2")
+// justCheck(removed)
+
+// let removedChilds = tree.removeChildNodes("Child-0-3")
+// console.log(removedChilds)
+
+// let removedChilds = deep.removeChildNodes("Child-0-5-2-2")
+// console.log(removedChilds)
+
+justCheck(tree)

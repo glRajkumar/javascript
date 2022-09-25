@@ -77,14 +77,14 @@ class Tree {
     let str = "\n"
 
     node?.children?.forEach(child => {
-      str += `${" ".repeat(spaceCount)}${child.name}${this.#getTreeStr(child, spaceCount + 2)}`
+      str += `${" ".repeat(spaceCount)}${child.name} (${child.id})${this.#getTreeStr(child, spaceCount + 2)}`
     })
 
     return str
   }
 
   printTree() {
-    console.log(`\n${this.name}${this.#getTreeStr(this, 2)}`)
+    console.log(`\n${this.name} (${this.id}) ${this.#getTreeStr(this, 2)}`)
   }
 
   isInTree(needle, node = null) { // will check deeply
@@ -135,6 +135,26 @@ class Tree {
 
   getChildNodes(nameOrId) {
     return this.getNode(nameOrId)?.children || null
+  }
+
+  removeNode(needle) {
+    let toBeRemovedNode = this.getNode(needle)
+    if (!toBeRemovedNode) return null
+
+    toBeRemovedNode.parentNode.children.delete(toBeRemovedNode.id)
+    return toBeRemovedNode
+  }
+
+  removeChildNodes(needle) {
+    // let toBeRemovedNode = this.getNode(needle)
+    // if (!toBeRemovedNode) return null
+    // toBeRemovedNode.children.clear()
+    // return toBeRemovedNode.children
+
+    let toBeRemovedNode = this.getChildNodes(needle)
+    if (!toBeRemovedNode) return null
+    toBeRemovedNode.clear()
+    return toBeRemovedNode
   }
 }
 
