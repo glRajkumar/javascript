@@ -44,14 +44,17 @@ deeper.createChildNode("Child-0-5-2-2-1")
 
 justCheck(tree)
 
-// console.log(tree.hasChildNode(child1))
-// console.log(tree.hasChildNode("Child-0-3"))
-// console.log(tree.hasChildNode("Child-0-9"))
-// console.log(tree.hasChildNode("Child-0-5-2-2-0-0"))
-// console.log(tree.hasChildNode("Child-0-5-2-2-0-2"))
+// console.log(tree.isInTree(child1))
+// console.log(tree.isInTree("Child-0-3"))
+// console.log(tree.isInTree("Child-0-9"))
+// console.log(tree.isInTree("Child-0-5-2-2-0-0"))
+// console.log(tree.isInTree("Child-0-5-2-2-0-2"))
 
-// let retrieved = tree.getChildNode("Child-0-1")
+// let retrieved = tree.getNode("Child-0-5")
 // justCheck(retrieved)
 
-// let retrievedDeepest = tree.getChildNode("Child-0-5-2-2-0-0")
+// let retrievedDeepest = tree.getNode("Child-0-5-2-2-0-0")
 // justCheck(retrievedDeepest)
+
+// let retrievedChilds = tree.getChildNodes("Child-0-5")
+// console.log(retrievedChilds)

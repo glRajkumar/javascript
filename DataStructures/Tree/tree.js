@@ -87,22 +87,28 @@ class Tree {
     console.log(`\n${this.name}${this.#getTreeStr(this, 2)}`)
   }
 
-  hasChildNode(needle, node = null) {
-    let currentChilds = node?.children || this.#children
+  isInTree(needle, node = null) { // will check deeply
+    let currentId = node?.id || this.id
+    let currentName = node?.name || this.name
+    let currentChilds = node?.children || this.children
+    let searchBy = needle
 
     if (needle instanceof Tree) {
-      if (currentChilds.has(needle.id)) {
-        return true
-      }
+      searchBy = needle.id
+    }
+
+    if (currentId === searchBy || currentName === searchBy) {
+      return true
     }
 
     for (let [id, childTree] of currentChilds) {
-      if (id === needle || childTree.id === needle || childTree.name === needle) {
+      console.log(childTree.id, childTree.name)
+      if (childTree.id === searchBy || childTree.name === searchBy) {
         return true
       }
 
       if (childTree.directChildrenCount > 0) {
-        let childHasNeedle = this.hasChildNode(needle, childTree)
+        let childHasNeedle = this.isInTree(searchBy, childTree)
         if (childHasNeedle) return true
       }
     }
@@ -110,19 +116,25 @@ class Tree {
     return false
   }
 
-  getChildNode(nameOrId, node = null) {
-    let currentChilds = node?.children || this.#children
+  getNode(nameOrId, node = null) {
+    let currentChilds = node?.children || this.children
 
     for (let [id, childTree] of currentChilds) {
-      if (id === nameOrId || childTree.name === nameOrId) {
+      if (childTree.id === nameOrId || childTree.name === nameOrId) {
         return childTree
       }
 
       if (childTree.directChildrenCount > 0) {
-        let foundTree = this.getChildNode(nameOrId, childTree)
+        let foundTree = this.getNode(nameOrId, childTree)
         if (foundTree) return foundTree
       }
     }
+
+    return null
+  }
+
+  getChildNodes(nameOrId) {
+    return this.getNode(nameOrId)?.children || null
   }
 }
 
