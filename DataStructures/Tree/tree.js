@@ -156,6 +156,26 @@ class Tree {
     toBeRemovedNode.clear()
     return toBeRemovedNode
   }
+
+  traverse(cb) {
+    for (let [id, childTree] of this.children) {
+      if (cb(childTree) === true || childTree.traverse(cb) === true) {
+        return true
+      }
+    }
+  }
+
+  findAllNodesByName(name) {
+    const nodes = []
+
+    this.traverse(node => {
+      if (node.name === name) {
+        nodes.push(node)
+      }
+    })
+
+    return nodes
+  }
 }
 
 module.exports = Tree
