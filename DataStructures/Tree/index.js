@@ -71,19 +71,29 @@ deeper.createChildNode("Child-0-5-2-2-1")
 // let removedChilds = deep.removeChildNodes("Child-0-5-2-2")
 // console.log(removedChilds)
 
-justCheck(tree)
+// justCheck(tree)
 
 
 // console.log(tree.findAllNodesByName("Child-0-5"))
 
-let foundNode = null
+// let foundNode = null
 
-tree.traverse(node => {
-  console.log(node.id)
-  if (node.id === 2) {
-    foundNode = node
-    return true
-  }
-})
+// tree.traverse(node => {
+//   console.log(node.id)
+//   if (node.id === 2) {
+//     foundNode = node
+//     return true
+//   }
+// })
 
-console.log(foundNode)
+// console.log(foundNode)
+
+const child1Child0 = new Tree("Child-0-1-0")
+
+// child1.appendChildNode(child1) // throw error
+
+child1.appendChildNode(child1Child0)
+
+// child2.appendChildNode(child1Child0) // throw error
+
+justCheck(tree)

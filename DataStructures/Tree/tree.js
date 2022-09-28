@@ -72,6 +72,32 @@ class Tree {
     return newNode
   }
 
+  appendChildNode(node) {
+    if (!(node instanceof Tree)) return;
+
+    if (this.isInTree(node)) throw new Error('Node is already in root tree');
+
+    if (node === this) throw new Error('Node cannot contain itself');
+
+    let root = null
+    let parent = this.parentNode
+
+    while (parent !== null) {
+      if (parent === node) throw new Error('Node cannot contain one of its ancestors');
+
+      if (!parent.parentNode) {
+        root = parent
+      }
+
+      parent = parent.parentNode
+    }
+
+    if (root?.isInTree(node)) throw new Error('Node is already in root tree');
+
+    this.#children.set(node.id, node);
+    node.parentNode = this;
+  }
+
   #getTreeStr(node, spaceCount = 0) {
     if (!node.children) return ""
     let str = "\n"
@@ -102,7 +128,7 @@ class Tree {
     }
 
     for (let [id, childTree] of currentChilds) {
-      console.log(childTree.id, childTree.name)
+      // console.log(childTree.id, childTree.name)
       if (childTree.id === searchBy || childTree.name === searchBy) {
         return true
       }
