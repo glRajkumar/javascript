@@ -4,13 +4,18 @@ class Graph {
   }
 
   addVertex(vertex) {
+    let vertexChk = vertex !== 0 ? !vertex : false
+    if (vertexChk) return;
+
     if (!this.adjacencyList[vertex]) {
       this.adjacencyList[vertex] = new Set()
     }
   }
 
   addEdge(v1, v2) {
-    if (!v1 || !v2) return;
+    let v1Chk = v1 !== 0 ? !v1 : false
+    let v2Chk = v2 !== 0 ? !v2 : false
+    if (v1Chk || v2Chk) return;
 
     this.addVertex(v1)
     this.addVertex(v2)
@@ -20,7 +25,9 @@ class Graph {
   }
 
   removeEdge(v1, v2) {
-    if (!v1 || !v2) return;
+    let v1Chk = v1 !== 0 ? !v1 : false
+    let v2Chk = v2 !== 0 ? !v2 : false
+    if (v1Chk || v2Chk) return;
 
     this.adjacencyList[v1].delete(v2)
     this.adjacencyList[v2].delete(v1)
@@ -37,7 +44,9 @@ class Graph {
   }
 
   hasEdge(v1, v2) {
-    if (!v1 || !v2) return;
+    let v1Chk = v1 !== 0 ? !v1 : false
+    let v2Chk = v2 !== 0 ? !v2 : false
+    if (v1Chk || v2Chk) return;
 
     return (
       this.adjacencyList[v1].has(v2) &&
