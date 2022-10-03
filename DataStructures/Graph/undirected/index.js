@@ -1,8 +1,11 @@
-const Graph = require('./graph')
+// const Graph = require('./graph')
+const Graph = require('./graph2')
 
 let graph = new Graph()
 
 function justCheck() {
+  console.log('vertices', graph.vertices)
+  console.log('adjacencyList', graph.adjacencyList)
   graph.print()
   console.log("")
 }
@@ -26,3 +29,6 @@ justCheck()
 graph.removeVertex("C")
 
 justCheck()
+
+console.log(graph.hasEdge("A", 'B'))
+console.log(graph.hasEdge("A", 'D'))

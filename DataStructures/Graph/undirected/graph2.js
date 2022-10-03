@@ -1,8 +1,9 @@
 class Graph {
-  #adjacencyList = {}
+  #vertices = new Set()
+  #adjacencyList = new Map()
 
   get vertices() {
-    return Object.keys(this.#adjacencyList)
+    return Array.from(this.#vertices)
   }
 
   get adjacencyList() {
@@ -13,8 +14,9 @@ class Graph {
     let vertexChk = vertex !== 0 ? !vertex : false
     if (vertexChk) return;
 
-    if (!this.#adjacencyList[vertex]) {
-      this.#adjacencyList[vertex] = new Set()
+    if (!this.#vertices.has(vertex)) {
+      this.#vertices.add(vertex)
+      this.#adjacencyList.set(vertex, new Set())
     }
   }
 
@@ -23,16 +25,16 @@ class Graph {
     let v2Chk = v2 !== 0 ? !v2 : false
     if (v1Chk || v2Chk || v1 === v2) return;
 
-    if (!this.#adjacencyList[v1]) {
+    if (!this.#vertices.has(v1)) {
       this.addVertex(v1)
     }
 
-    if (!this.#adjacencyList[v2]) {
+    if (!this.#vertices.has(v2)) {
       this.addVertex(v2)
     }
 
-    this.#adjacencyList[v1].add(v2)
-    this.#adjacencyList[v2].add(v1)
+    this.#adjacencyList.get(v1).add(v2)
+    this.#adjacencyList.get(v2).add(v1)
   }
 
   removeEdge(v1, v2) {
@@ -40,18 +42,18 @@ class Graph {
     let v2Chk = v2 !== 0 ? !v2 : false
     if (v1Chk || v2Chk) return;
 
-    this.#adjacencyList[v1].delete(v2)
-    this.#adjacencyList[v2].delete(v1)
+    this.#adjacencyList.get(v1).delete(v2)
+    this.#adjacencyList.get(v2).delete(v1)
   }
 
   removeVertex(vertex) {
-    if (!this.#adjacencyList[vertex]) return;
+    if (!this.#vertices.has(vertex)) return;
 
-    for (const adjacentVertex of this.#adjacencyList[vertex]) {
+    this.#adjacencyList.get(vertex).forEach(adjacentVertex => {
       this.removeEdge(vertex, adjacentVertex)
-    }
+    })
 
-    delete this.#adjacencyList[vertex]
+    this.#adjacencyList.delete(vertex)
   }
 
   hasEdge(v1, v2) {
@@ -60,15 +62,15 @@ class Graph {
     if (v1Chk || v2Chk) return;
 
     return (
-      this.#adjacencyList[v1].has(v2) &&
-      this.#adjacencyList[v2].has(v1)
+      this.#adjacencyList.get(v1).has(v2) &&
+      this.#adjacencyList.get(v2).has(v1)
     )
   }
 
   print() {
-    for (const key in this.#adjacencyList) {
-      console.log(key + "  ->  " + [...this.#adjacencyList[key]].join(", "))
-    }
+    this.#adjacencyList.forEach((val, key) => {
+      console.log(`${key} -> ${Array.from(val).join(', ')}`)
+    })
   }
 }
 
