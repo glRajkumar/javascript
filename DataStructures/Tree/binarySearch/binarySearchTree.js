@@ -63,8 +63,12 @@ class BST {
     return this.max(root.right)
   }
 
-  print() {
-    console.log(this.root)
+  print(root = this.root, space = 0, parent = "root") {
+    if (root) {
+      console.log(`${"-".repeat(space)} ${root.value} (${parent})`)
+      this.print(root.left, space + 2, `${root.value} - L`)
+      this.print(root.right, space + 2, `${root.value} - R`)
+    }
   }
 
   debthFirstPreOrder(root = this.root) {
