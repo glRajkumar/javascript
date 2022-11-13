@@ -29,6 +29,11 @@ tree.print()
 // console.log("min", tree.min())
 // console.log("max", tree.max())
 
-console.log("")
-tree.delete(10)
-tree.print()
+// console.log("")
+// tree.delete(10)
+// tree.print()
+
+
+console.log(tree.findMinHeight())
+console.log(tree.findMaxHeight())
+console.log(tree.isBalanced())

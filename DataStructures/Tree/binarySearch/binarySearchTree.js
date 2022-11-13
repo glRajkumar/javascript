@@ -134,6 +134,28 @@ class BST {
 
     return root
   }
+
+  findMinHeight(root = this.root) {
+    if (!root) return -1
+    let left = this.findMinHeight(root.left)
+    let right = this.findMinHeight(root.right)
+
+    if (left < right) return left + 1
+    return right + 1
+  }
+
+  findMaxHeight(root = this.root) {
+    if (!root) return -1
+    let left = this.findMaxHeight(root.left)
+    let right = this.findMaxHeight(root.right)
+
+    if (left > right) return left + 1
+    return right + 1
+  }
+
+  isBalanced() {
+    return (this.findMinHeight() >= this.findMaxHeight() - 1)
+  }
 }
 
 module.exports = BST
