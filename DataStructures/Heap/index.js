@@ -15,3 +15,13 @@ heap.push(2)
 heap.push(5)
 
 heap.print()
+console.log("")
+
+let deletedArr = []
+deletedArr.push(heap.poll())
+deletedArr.push(heap.poll())
+deletedArr.push(heap.poll())
+
+console.log("deletedArr")
+console.log(deletedArr)
+heap.print()
